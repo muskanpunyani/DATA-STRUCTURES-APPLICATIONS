@@ -21,7 +21,7 @@ void infixtopostfix(string exp)
 {
 	stack<char> s;
 	string final="";
-	s.push('N');      //adding a char to determine empty stack,if expression contains N dont take it
+//	s.push('N');      //adding a char to determine empty stack,if expression contains N dont take it
 	int l=exp.length();
 	for(int i=0;i<l;i++)   //traverse the string
 	{
@@ -37,7 +37,7 @@ void infixtopostfix(string exp)
 		// if ) then pop everything bn ()
 		else if(exp[i]==')')
 		{
-			while(s.top()!='N' && s.top()!='(')
+			while(s.empty()==false && s.top()!='(')
 			{
 				char c=s.top();
 				s.pop();
@@ -49,7 +49,7 @@ void infixtopostfix(string exp)
 			}
 		}
 		else{
-			while(s.top()!='N' && prec(exp[i])<=prec(s.top()))  //if precedence of operator is less or equal; pop everything
+			while(s.empty()==false  && prec(exp[i])<=prec(s.top()))  //if recedence of operator is less or equa; pop everything
 			{
 				char c=s.top();
 				s.pop();
@@ -58,7 +58,7 @@ void infixtopostfix(string exp)
 			s.push(exp[i]);   //else push that
 		}
 	}
-	while(s.top()!='N')   //output the stack
+	while(s.empty()==false)   //output the stack
 	{
 		char c=s.top();
 		s.pop();
