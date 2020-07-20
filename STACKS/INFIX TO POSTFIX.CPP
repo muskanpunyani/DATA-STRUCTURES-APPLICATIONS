@@ -37,7 +37,7 @@ void infixtopostfix(string exp)
 		// if ) then pop everything bn ()
 		else if(exp[i]==')')
 		{
-			while(s.empty()==false && s.top()!='(')
+			while(s.empty()==false && s.top()!='(')    // s.top()!='N' && s.top()!='('  ; if taken N as bottom element we can write like this
 			{
 				char c=s.top();
 				s.pop();
