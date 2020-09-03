@@ -1,0 +1,47 @@
+void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition (int input[], int start, int end)
+{
+    int pivot = input[end];  // selecting last element as pivot
+    int i = start-1;  // index of smaller element
+ 
+    for (int j = start; j <= end- 1; j++)
+    {
+        // If the current element is smaller than or equal to pivot
+        if (input[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap(&input[i], &input[j]);
+        }
+    }
+    swap(&input[i + 1], &input[end]);
+    return (i + 1);
+}
+
+void quick(int input[],int start,int end)
+{
+    if(start<end)
+    {
+        int c;
+    c=partition(input,start,end);
+        quick(input,start,c-1);
+        quick(input,c+1,end);
+    }
+        
+}
+
+void quickSort(int input[], int size) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Change in the given array itself.
+     Taking input and printing output is handled automatically.
+  */
+        int start=0;
+    int end=size-1;
+    quick(input,start,end);
+}
