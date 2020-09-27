@@ -12,6 +12,7 @@ if the p is in left subtree and q in right,then root wil be lca
 if p is only in left subtree the lca will be in left subtree
 else lca will be in right subtree
 */
+/* HERE WE ARE GUARANTEED THAT P AND Q EXISTS IN TREE,IF NO GURANTEE THEN WE NEED TO CHECK TREE FOR THOSE VALUE*/
 class Solution {
 public:
     
