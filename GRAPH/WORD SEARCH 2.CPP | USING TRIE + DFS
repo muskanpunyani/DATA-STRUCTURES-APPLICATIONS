@@ -38,7 +38,7 @@ public:
 struct Trie* getNode(void)    // creating node
 {
     struct Trie *node=new Trie;
-    node->isend=true;
+    node->isend=false;
     for(int i=0;i<alphabet;i++)
     {
         node->children[i]=NULL;
@@ -59,6 +59,7 @@ void insert(struct Trie* root,string key)   // insert values in trie
         pcrawl=pcrawl->children[index];
     }
     pcrawl->value=key;
+    pcrawl->isendofword=true;
 }
     
     void dfs(int i, int j, Trie* head, vector<vector<char>>& board, vector<string>* out) {
