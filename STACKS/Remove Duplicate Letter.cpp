@@ -22,7 +22,9 @@ Constraints:
     s consists of lowercase English letters.
 
 *************************************************************************************************
-
+// find freq of every char
+// put char in stack if stack is empty 
+// if the top of stack is greater than current char and it will occur again then remove it and make it false
 
 class Solution {
 public:
@@ -39,13 +41,13 @@ public:
         
         for(int i=0;i<n;i++)
         {
-           if(visited[s[i]-'a']==true)
+           if(visited[s[i]-'a']==true)        // if char occurred already 
             {
                 m[s[i]]--;
                 continue;
             }
          
-        while((st.empty()==false) && st.top()>s[i] && m[st.top()]>0)
+        while((st.empty()==false) && st.top()>s[i] && m[st.top()]>0)   // if char is less than top char and it will occur in future,then remove top
             {
                 visited[st.top()-'a']=false;
                 st.pop();
