@@ -17,7 +17,7 @@ class Solution {
 public:
     
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-         vector<int> path1,path2;
+        // vector<int> path1,path2;
         TreeNode* temp;
         if(root==NULL)
         {
