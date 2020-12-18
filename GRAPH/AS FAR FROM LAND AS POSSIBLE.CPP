@@ -30,15 +30,15 @@ Note:
 **********************************************************************************************************************************
 
 
-
+// we are doing bfs
 class Solution {
 public:
     int maxDistance(vector<vector<int>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
         int zero=0;
-        int one=0;
-        queue<pair<int,int>> q;
+        int one=0;  
+        queue<pair<int,int>> q;   // queue of coordinates i.e row,col
      
         for(int i=0;i<n;i++)
         {
@@ -50,12 +50,12 @@ public:
                 }
                 else{
                     one++;
-                    q.push({i,j});  // put 1
-                    grid[i][j]=-1;
+                    q.push({i,j});  // put 1,put all land in the queue
+                    grid[i][j]=-1;   // mark 1 as -1 i.e visited
                 }
             }
         }
-        if(zero==0 || one==0)
+        if(zero==0 || one==0)   // if count of zero 0r one is 0 then return -1
         {
             return -1;
         }
@@ -68,6 +68,7 @@ public:
            int i=p.first;
            int j=p.second;
            dist--;
+           // fill the dist in 4 dirn for 0, dist will be the level no,i.e bfs for all 4 dirn
            if( i+1>=0 && i+1<n && j>=0 && j<n && grid[i+1][j]==0)
            {
               grid[i+1][j]=level;
@@ -99,7 +100,7 @@ public:
      {
          for(int j=0;j<m;j++)
          {
-             if(grid[i][j]!=-1)
+             if(grid[i][j]!=-1)   // i.e 0 ones value (water)
                  ans=max(ans,grid[i][j]);
          }
      }
