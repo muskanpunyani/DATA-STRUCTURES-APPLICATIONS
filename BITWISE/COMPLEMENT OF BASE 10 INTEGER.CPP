@@ -39,7 +39,7 @@ public:
             return 1;
         }
         int val=1;
-        while(val<N)     // n=2   ; 3 < N ; 7>N (break the loop)
+        while(val<N)     // n=5   ; 3 < N ; 7>N (break the loop)
         {
             val=val*2+1;    // val=3 ; val=7
         }
