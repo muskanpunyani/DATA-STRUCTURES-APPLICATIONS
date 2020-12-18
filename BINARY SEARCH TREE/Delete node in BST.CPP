@@ -27,7 +27,12 @@ Example 3:
 
 Input: root = [], key = 0
 Output: []
-*********************************************************************************************************************************8
+*********************************************************************************************************************************
+1) if 0 or no child,del it directly
+2) if 2 child,find inorder successor,
+inorder successor is finding min val element in the right subtree,greater than root value.
+repalce that with root to be deleted and delete the inorder
+
 class Solution {
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
