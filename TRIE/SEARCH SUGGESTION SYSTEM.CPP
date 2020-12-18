@@ -79,14 +79,14 @@ public:
     }
     void dfs(struct node* pcrawl,vector<string>& temp,string &key) // searching word with prefix
     {
-        if(temp.size()==3)
+        if(temp.size()==3)   // need to have atmost 3 product names
             return;
         if(pcrawl->isend)
             temp.push_back(key);  // push the prefix
          for (int i = 0; i < 26; ++i) {
             if (pcrawl->children[i]) {
                 key.push_back(char('a'+i));  // check for every new word
-                dfs(pcrawl->children[i], temp, key);
+                dfs(pcrawl->children[i], temp, key); // do dfs
                 key.pop_back();             // pop bcz change the word to another possibility
             }
         }
