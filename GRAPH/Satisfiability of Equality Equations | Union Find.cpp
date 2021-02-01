@@ -1,4 +1,5 @@
-Given an array equations of strings that represent relationships between variables, each string equations[i] has length 4 and takes one of two different forms: "a==b" or "a!=b".  Here, a and b are lowercase letters (not necessarily different) that represent one-letter variable names.
+Given an array equations of strings that represent relationships between variables, each string equations[i] has length 4 and takes 
+one of two different forms: "a==b" or "a!=b".  Here, a and b are lowercase letters (not necessarily different) that represent one-letter variable names.
 
 Return true if and only if it is possible to assign integers to variable names so as to satisfy all the given equations.
 
@@ -46,6 +47,8 @@ Note:
 
 class Solution {
 public:
+// using union find
+// union find complexity=0(n)
     int parent[27];
        int find(int k)
     {
