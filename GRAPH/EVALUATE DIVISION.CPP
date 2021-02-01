@@ -1,4 +1,5 @@
-You are given an array of variable pairs equations and an array of real numbers values, where equations[i] = [Ai, Bi] and values[i] represent the equation Ai / Bi = values[i]. Each Ai or Bi is a string that represents a single variable.
+You are given an array of variable pairs equations and an array of real numbers values, where equations[i] = [Ai, Bi] and values[i] represent the equation Ai / Bi
+= values[i]. Each Ai or Bi is a string that represents a single variable.
 
 You are also given some queries, where queries[j] = [Cj, Dj] represents the jth query where you must find the answer for Cj / Dj = ?.
 
@@ -90,7 +91,7 @@ public:
         vector<double> res;
         for(int i=0;i<l;i++)
         {
-            set<string> visited;
+            set<string> visited;           // reinitalizing visited for every query
             string src=queries[i][0];
             string dest=queries[i][1];
             double ans=dfs(m,src,dest,visited);
