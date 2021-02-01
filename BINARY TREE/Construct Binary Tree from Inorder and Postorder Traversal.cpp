@@ -29,6 +29,7 @@ Return the following binary tree:
  * };
  */
 /* in inorder first right then left*/
+//time=0(n)
 class Solution {
 public:
     
