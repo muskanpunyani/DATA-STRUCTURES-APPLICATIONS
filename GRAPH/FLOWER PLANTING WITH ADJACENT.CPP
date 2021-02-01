@@ -1,10 +1,12 @@
-You have n gardens, labeled from 1 to n, and an array paths where paths[i] = [xi, yi] describes a bidirectional path between garden xi to garden yi. In each garden, you want to plant one of 4 types of flowers.
+You have n gardens, labeled from 1 to n, and an array paths where paths[i] = [xi, yi] describes a bidirectional path between garden xi to garden yi. 
+In each garden, you want to plant one of 4 types of flowers.
 
 All gardens have at most 3 paths coming into or leaving it.
 
 Your task is to choose a flower type for each garden such that, for any two gardens connected by a path, they have different types of flowers.
 
-Return any such a choice as an array answer, where answer[i] is the type of flower planted in the (i+1)th garden. The flower types are denoted 1, 2, 3, or 4. It is guaranteed an answer exists.
+Return any such a choice as an array answer, where answer[i] is the type of flower planted in the (i+1)th garden. 
+The flower types are denoted 1, 2, 3, or 4. It is guaranteed an answer exists.
 
  
 
@@ -55,7 +57,7 @@ public:
             return ans;
         }
            
-        for(int i=0;i<paths.size();i++)
+        for(int i=0;i<paths.size();i++)  // bidirectional
         {
             int u=paths[i][0];
             int v=paths[i][1];
@@ -65,9 +67,9 @@ public:
        
         for(int i=1;i<=n;i++)
         {
-            vector<int> colour(5,0); // each is avail
+            vector<int> colour(5,0); // each color is available
           
-            for(int j:graph[i]) // visit child of ith node
+            for(int j:graph[i]) // visit adjacent of ith node
             {
               if(result[j-1]!=-1)
               colour[result[j-1]]=1;  // color[result] bcz color lies bn 1 and 4 only
