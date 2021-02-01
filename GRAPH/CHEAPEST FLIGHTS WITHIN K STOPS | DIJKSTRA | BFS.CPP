@@ -1,6 +1,7 @@
 There are n cities connected by m flights. Each flight starts from city u and arrives at v with a price w.
 
-Now given all the cities and flights, together with starting city src and the destination dst, your task is to find the cheapest price from src to dst with up to k stops. If there is no such route, output -1.
+Now given all the cities and flights, together with starting city src and the destination dst, your task is to find the cheapest price from src to dst with up to 
+k stops. If there is no such route, output -1.
 
 Example 1:
 Input: 
@@ -50,7 +51,8 @@ public:
             v[i[0]].push_back({i[1],i[2]});    //src-> (dest,cost)
         }
         // create a min priority queue of pair<int,pair<int,int>>
-        priority_queue < pair<int,pair<int,int> >, vector<pair<int,pair<int,int> > >,greater<pair<int,pair<int,int> >> > pq;
+        //lowest cost will be at top
+        priority_queue < pair<int,pair<int,int> >, vector<pair<int,pair<int,int> > >,greater<pair<int,pair<int,int> >> > pq; // [cost,curr node,k]
         
         // pushing src to pq
         pq.push({0,{src,K}});   // [cost,curr node,k]
