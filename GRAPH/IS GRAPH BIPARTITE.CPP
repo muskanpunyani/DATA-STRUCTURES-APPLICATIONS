@@ -37,7 +37,7 @@ Note:
 
 *****************************************************************************************************************************************
 
-
+// 2 colour should be given to graph such that adjacent are having different colours
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
