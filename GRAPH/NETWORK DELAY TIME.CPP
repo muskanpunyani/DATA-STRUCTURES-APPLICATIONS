@@ -2,7 +2,8 @@ https://leetcode.com/problems/network-delay-time/
 
 There are N network nodes, labelled 1 to N.
 
-Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the time it takes for a signal to travel from source to target.
+Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the time it takes for a 
+signal to travel from source to target.
 
 Now, we send a signal from a certain node K. How long will it take for all nodes to receive the signal? If it is impossible, return -1.
 
@@ -57,7 +58,7 @@ public:
         }
         for(int i=0;i<m.size();i++)
         {
-        sort(m[i].begin(),m[i].end(),comp); // sort
+        sort(m[i].begin(),m[i].end(),comp); // sort on basis of cost
         }
       vector<bool> visited(N+1,false);
       vector<int> dist(N+1,INT_MAX);
