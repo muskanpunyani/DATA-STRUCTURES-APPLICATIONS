@@ -77,12 +77,12 @@ bool comp(const vector<int> &v1,const vector<int> &v2)
     return v1[1]<v2[1];
 }
 int Solution::solve(vector<vector<int> > &A) {
-    sort(A.begin(),A.end(),comp);
+    sort(A.begin(),A.end(),comp);  // sort on basis of increasing end time
     int count=1;
     int end=A[0][1];
     for(int i=1;i<A.size();i++) //traversing rows
     {
-        if(A[i][0]>end)
+        if(A[i][0]>end)   // next start is greater than prev end
         {
             end=A[i][1];
             count++;
