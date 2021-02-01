@@ -1,4 +1,5 @@
- You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+ You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's 
+  elements in the corresponding places of nums2.
 
 The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
 
@@ -34,7 +35,7 @@ public:
         
         for(int i=0;i<nums2.size();i++)         // code of next grATER ELEMNT
         {
-                while(s.empty()==false && s.top()<nums2[i])
+                while(s.empty()==false && s.top()<nums2[i])  // if elem is greater than stack top,then it is next greater
                 {
                     m[s.top()]=nums2[i];
                     s.pop();
