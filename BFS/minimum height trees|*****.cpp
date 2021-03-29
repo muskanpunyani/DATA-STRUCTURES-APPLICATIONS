@@ -43,6 +43,7 @@ Constraints:
 
 
 ********************************
+// pure leaf nodes remove krna hai jb tk length 2 se badi rhegi then stop
 class Solution {
 public:
     /*
