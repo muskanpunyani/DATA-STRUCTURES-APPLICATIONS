@@ -55,6 +55,7 @@ go through the string only once and each time when we reach a none root number (
 
 use a map with the key being the number of dashes of each node.
     */
+    // time=space=0(n)
     map<int,TreeNode*> m; // count of '-'  for every node, i.e level-node
     TreeNode* recoverFromPreorder(string s) {
         int level=0;
