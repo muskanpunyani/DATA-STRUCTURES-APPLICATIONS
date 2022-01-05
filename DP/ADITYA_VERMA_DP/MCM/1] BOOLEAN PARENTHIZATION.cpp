@@ -104,7 +104,7 @@ unordered_map<string,long long int> m;
         
         int i=0;
         int j=N-1;
-        bool istrue=true;
+        bool istrue=true;  // bcz req is true vaulue
         return solve(S,i,j,istrue);
     }
 };
