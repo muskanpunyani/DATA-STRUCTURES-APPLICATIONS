@@ -78,6 +78,7 @@ public:
             }
             if(d>b) // if end of second is greater than first,then we can skip first interval value
             {
+            // bcz if a-b and c-d , d was greater than no use of looking 1st interval a-b as its merged with c-d or skipped for next entries
                 i++;
             }
             else{ // else vice versa
