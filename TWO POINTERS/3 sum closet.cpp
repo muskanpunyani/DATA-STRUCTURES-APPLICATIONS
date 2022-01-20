@@ -46,6 +46,7 @@ public:
                 }
             }
         }
+        // target - sum =diff , so target-diff is sum
         int ans=target-diff; // target-diff will be the sum of elements whose sum is near to target
         return ans;
     }
