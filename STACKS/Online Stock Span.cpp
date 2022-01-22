@@ -47,10 +47,10 @@ public:
         int val=1;
        while(s.empty()==false && price>=s.top().first)
        {
-            val+=s.top().second;
+            val+=s.top().second;      // if bigger elem smaller will be popped.
            s.pop();
        }
-        s.push({price,val});
+        s.push({price,val});  // if stack empty val is 1
         return val;
     }
 };
