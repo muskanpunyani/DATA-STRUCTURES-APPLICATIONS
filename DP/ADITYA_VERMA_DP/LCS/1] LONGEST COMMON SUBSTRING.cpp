@@ -27,15 +27,19 @@ Expected Auxiliary Space: O(n*m).
 Constraints:
 1<=n, m<=1000
 ******************
-class Solution
-{
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+class Solution{
     public:
-    //Function to find the length of longest common subsequence in two strings.
-    int lcs(int n, int m, string s1, string s2)
+    
+    int longestCommonSubstr (string s1, string s2, int n, int m)
     {
-        // dp
-        // initialization
+        // same as lcs but its longest common substring, so the moment we find no match
+        // that would be again length=0
         
+        // initialization
         int dp[n+1][m+1];
         for(int i=0;i<=n;i++)
         {
@@ -47,7 +51,6 @@ class Solution
                 }
             }
         }
-        // code
         for(int i=1;i<=n;i++)
         {
             for(int j=1;j<=m;j++)
@@ -57,10 +60,37 @@ class Solution
                     dp[i][j]=1+dp[i-1][j-1];
                 }
                 else{
-                    dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                    dp[i][j]=0;
                 }
             }
         }
-        return dp[n][m];
+        int ans=INT_MIN;
+        for(int i=0;i<=n;i++)
+        {
+            for(int j=0;j<=m;j++)
+            {
+                ans=max(ans,dp[i][j]);
+            }
+        }
+        return ans;
     }
 };
+
+// { Driver Code Starts.
+
+int main()
+{
+    int t; cin >> t;
+    while (t--)
+    {
+        int n, m; cin >> n >> m;
+        string s1, s2;
+        cin >> s1 >> s2;
+        Solution ob;
+
+        cout << ob.longestCommonSubstr (s1, s2, n, m) << endl;
+    }
+}
+// Contributed By: Pranay Bansal
+  // } Driver Code Ends
+    
