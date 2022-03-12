@@ -29,33 +29,73 @@ Constraints:
 
 **********************************
 
-Given an array arr[] of size N, check if it can be partitioned into two parts such that the sum of elements in both parts is the same.
+#include <bits/stdc++.h>
+using namespace std;
 
-Example 1:
+ // } Driver Code Ends
+class Solution{
 
-Input: N = 4
-arr = {1, 5, 11, 5}
-Output: YES
-Explaination: 
-The two parts are {1, 5, 5} and {11}.
+	public:
+	int mod=pow(10,9)+7;
+	int perfectSum(int arr[], int n, int sum)
+	{
+        // same as subset sum just int arr instead of bool and 1 in place of true and + in place of or
+    int dp[n+1][sum+1];
+    for(int i=0;i<=n;i++)
+    {
+        for(int j=0;j<=sum;j++)
+        {
+            if(i==0 && j>0)
+            {
+                dp[i][j]=0;
+            }
+            else if(j==0)
+            {
+                dp[i][j]=1;
+            }
+        }
+    }
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=sum;j++)
+        {
+            if(arr[i-1]<=j)
+            {
+                dp[i][j]=(dp[i-1][j] %mod + dp[i-1][j-arr[i-1]]%mod)%mod;
+            }
+            else{
+                dp[i][j]=dp[i-1][j]%mod;
+            }
+        }
+    }
+    return dp[n][sum]%mod;
+	}
+	  
+};
 
-Example 2:
+// { Driver Code Starts.
+int main() 
+{
+   	
+   
+   	int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, sum;
 
-Input: N = 3
-arr = {1, 3, 5}
-Output: NO
-Explaination: This array can never be 
-partitioned into two such parts.
+        cin >> n >> sum;
 
+        int a[n];
+        for(int i = 0; i < n; i++)
+        	cin >> a[i];
 
-Your Task:
-You do not need to read input or print anything. Your task is to complete the function equalPartition() which takes the value N and the array as input parameters and returns 1 if the partition is possible. Otherwise, returns 0.
+       
 
-
-Expected Time Complexity: O(N*sum of elements)
-Expected Auxiliary Space: O(N*sum of elements)
-
-
-Constraints:
-1 ≤ N ≤ 100
-1 ≤ arr[i] ≤ 1000
+	    Solution ob;
+	    cout << ob.perfectSum(a, n, sum) << "\n";
+	     
+    }
+    return 0;
+}
+  // } Driver Code Ends
