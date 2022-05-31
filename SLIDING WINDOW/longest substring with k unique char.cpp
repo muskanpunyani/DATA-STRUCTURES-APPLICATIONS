@@ -83,7 +83,7 @@ int longestSubstringWithKUniqueCharacters(string s, int k) {
 		{
 			// if string is having greater than k distinct character
 			// move left part of window
-			cnt[s[i]-'a']--;
+			cnt[s[left]-'a']--;
 			left++;
 		}
 		ans=max(ans,right-left+1);
